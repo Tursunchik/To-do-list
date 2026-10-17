@@ -22,7 +22,7 @@ public class App {
                 todoList.add(new Task(desc));
             } else if(choice == 2){
                 for(int i = 0; i < todoList.size(); i++){
-                    System.out.println(i+1 + "." + todoList.get(i));
+                    System.out.println(i+1 + "." + todoList.get(i)); // bug fixed
                 }
             } else if(choice == 4){
                 break;

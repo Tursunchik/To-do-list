@@ -12,7 +12,8 @@ public class App {
             System.out.println("1. Add Task");
             System.out.println("2. View Tasks");
             System.out.println("3. Mark as finished task");
-            System.out.println("4. Exit");
+            System.out.println("4. Delete Task");
+            System.out.println("5. Exit");
             System.out.print("Choose an option: ");
 
             if (sc.hasNextInt()) {
@@ -66,7 +67,25 @@ public class App {
                         }
                     }
 
-                } else if (choice == 4) {
+                } else if(choice == 4) {
+                    System.out.println("Enter description of task you want to delete: ");
+                    String descDelete = sc.nextLine().trim();
+                    boolean found = false;
+
+                    for(int i = 0; i < todoList.size(); i++){
+                        if(todoList.get(i).getDescription()
+                                .equalsIgnoreCase(descDelete)){
+                            todoList.remove(i);
+                            System.out.println("Task deleted successfully!");
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(!found){
+                        System.out.println("Task not found!");
+                    }
+
+                }else if (choice == 5) {
                     System.out.println("Goodbye!");
                     break;
 

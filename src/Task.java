@@ -17,6 +17,6 @@ public class Task {
 
     @Override
     public String toString(){
-    return (isDone ? "[+] ":" [ ]") + description;
+    return (isDone ? "[+] ":" [ ]") + " " + description;
     }
 }

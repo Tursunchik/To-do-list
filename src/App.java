@@ -24,17 +24,16 @@ public class App {
                     System.out.print("Enter Description: ");
                     String desc = sc.nextLine().trim();
 
-                    if (desc.trim().isEmpty()) {
-                        System.out.println("Invalid Description!");
+                    if (desc.isEmpty()) {
+                        System.out.println("Invalid Description! It cannot be empty.");
                     } else if (desc.length() > 100) {
                         System.out.println("Description too long! Maximum 100 characters.");
-                    } else if (!desc.matches(".*[a-zA-Z].*")) {
+                    } else if (!desc.matches(".*\\p{L}.*")) {
                         System.out.println("Description must contain at least one letter!");
-                    }else {
+                    } else {
                         todoList.add(new Task(desc));
                         System.out.println("Task added successfully!");
                     }
-
                 } else if (choice == 2) {
                     if (todoList.isEmpty()) {
                         System.out.println("Your task list is empty!");

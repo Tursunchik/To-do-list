@@ -67,22 +67,35 @@ public class App {
                     }
 
                 } else if(choice == 4) {
-                    System.out.println("Enter description of task you want to delete: ");
-                    String descDelete = sc.nextLine().trim();
-                    boolean found = false;
+                  {
+                    if (todoList.isEmpty()) {
+                        System.out.println("Your task list is empty!");
+                    } else {
+                        System.out.print("Enter description of task you want to delete: ");
+                        String descDelete = sc.nextLine().trim();
 
-                    for(int i = 0; i < todoList.size(); i++){
-                        if(todoList.get(i).getDescription()
-                                .equalsIgnoreCase(descDelete)){
-                            todoList.remove(i);
-                            System.out.println("Task deleted successfully!");
-                            found = true;
-                            break;
+                        if (descDelete.isEmpty()) {
+                            System.out.println("Description cannot be empty!");
+                        } else {
+                            boolean found = false;
+
+                            for(int i = 0; i < todoList.size(); i++){
+                                if(todoList.get(i).getDescription()
+                                        .equalsIgnoreCase(descDelete)){
+                                    todoList.remove(i);
+                                    System.out.println("Task deleted successfully!");
+                                    found = true;
+                                    break;
+                                }
+                            }
+
+                            if (!found) {
+                                System.out.println("Task not found!");
+                            }
                         }
                     }
-                    if(!found){
-                        System.out.println("Task not found!");
-                    }
+                }
+
 
                 }else if (choice == 5) {
                     System.out.println("Goodbye!");
